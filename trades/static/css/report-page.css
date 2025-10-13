@@ -1,0 +1,71 @@
+ body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        margin: 20px;
+    }
+
+    .report-container {
+        /* max-width: 295%; */
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    thead {
+        background-color: #343a40;
+        color: #ffffff;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 12px 15px;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f3f5;
+        transition: background-color 0.3s ease;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none; /* removes underline */
+    }
+
+    a:hover {
+        color: #0056b3;
+        text-decoration: underline; /* subtle on hover */
+    }
+
+    th {
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    td {
+        font-size: 14px;
+        color: #333;
+    }
+
+    /* Optional: Zebra striping */
+    tbody tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    /* Screenshot column specific */
+    td a[href$=".jpg"],
+    td a[href$=".png"],
+    td a[href$=".jpeg"] {
+        color: #28a745;
+        font-weight: bold;
+    }

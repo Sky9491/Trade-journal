@@ -1,0 +1,67 @@
+{% extends "trades/Base.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Edit Trade</title>
+    <link rel="stylesheet" href="{% static 'css/trade-entry.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Edit Trade</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-item">
+            <input type="datetime-local" name="date" value="{{ trade.date_time|date:'Y-m-d\\TH:i' }}">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="Asset" value="{{ trade.asset }}" placeholder="Asset">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="long_short" value="{{ trade.direction }}" placeholder="Long or Short">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="entry_price" value="{{ trade.entry_price }}" placeholder="Entry Price">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="exit_price" value="{{ trade.exit_price }}" placeholder="Exit Price">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="loat_size" value="{{ trade.loat_size }}" placeholder="Lot Size">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="risk_manage" value="{{ trade.risk_manage }}" placeholder="SL/TP Levels">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="trade_result" value="{{ trade.trade_result }}" placeholder="Profit or Loss">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="reason_for_trade" value="{{ trade.reason_for_trade }}" placeholder="Trade Logic">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="emotions" value="{{ trade.emotions }}" placeholder="Emotions">
+        </div>
+
+        <div class="form-item">
+            <input type="text" name="you_learned" value="{{ trade.you_learned }}" placeholder="Key Takeaways">
+        </div>
+
+        <div class="form-item">
+            <label>Replace Screenshot (optional)</label>
+            <input type="file" name="screenshot" accept="image/*">
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+{% endblock %}

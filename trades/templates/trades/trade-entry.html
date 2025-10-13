@@ -1,0 +1,92 @@
+{% extends "trades/Base.html" %}
+{% load static %}
+{% block head %}
+                    
+    <title>add</title>
+    
+    <link rel="stylesheet" href="{% static 'css/trade-entry.css' %}">
+{% endblock  %}
+
+{% block content %}
+
+    
+
+<div class="form-container">
+   
+    <div class="back-button-box">
+        <button id="backBtn" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+        </button>
+    </div>
+    {{success}}
+    <form action="{% url "trade-entry" %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-item">
+            <input type="datetime-local" placeholder="Date /Time" name="date">
+        </div>
+        <div class="form-item">
+            <input type="text" placeholder="What you traded (e.g., AAPL, EUR/USD, BTC)" name="Asset">
+        </div>
+        <div class="form-item">
+            <input type="text" placeholder="Long or short" name="long_short">
+        </div>
+        <div class="form-item">
+            <input type="text" placeholder="Entry price (e.g., 150.25) " name="entry_price">
+        </div>
+        <div class="form-item">
+            <input type="text" placeholder="exited Price  (e.g., 155.00)" name="exit_price">
+        </div>
+        <div class="form-item">
+            <input type="text" placeholder="How much you traded (e.g., 100 shares, 1 lot)" name="loat_size">
+        </div>
+        <div class="form-item">
+            <input type="text" placeholder="Stop Loss / Take Profit levels (e.g., SL at 148, TP at 160)" name="risk_manage">
+
+        </div>
+
+        
+        <div class="form-item">
+            <input type="text" placeholder="Profit or loss (e.g., +$250, -$100)" name="trade_result">
+        </div>
+        
+        {% comment %} <div class="form-item">
+
+            <select name="result" id="result">
+                <option value="none">None</option>
+                <option value="success">Trade Success</option>
+                <option value="loss">Trade Loss</option>
+            </select>
+        </div> {% endcomment %}
+
+        <div class="form-item">
+            <input type="text" placeholder="Logic for this Trade? (e.g., trendline breakout, news event)" name="reason_for_trade">
+        </div>
+        <div class="form-item">
+            <input type="text" placeholder="How you felt before, during, and after the trade (e.g., confident, anxious, revenge trading)" name="emotions">
+        </div>
+        
+        <div class="form-item">
+            <input type="text" placeholder="Key takeaways from the trade" name="you_learned">
+        </div>
+            <div class="form-item">
+                {% comment %} <label for="ss">A chart showing your entry/exit points</label>
+     {% endcomment %}
+            <input type="file" name="screenshot" accept="image/*">
+            </div>
+
+        <button type="submit">Submit</button>
+        
+        
+
+        
+
+    </form>
+
+
+
+    
+<div>
+
+    <script src="{% static "js/script.js" %}"></script>
+
+{% endblock content %}
